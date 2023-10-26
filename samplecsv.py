@@ -16,7 +16,7 @@ df.createOrReplaceTempView("tab")
 #res=df.where(col("city")=="hyd")
 #res=df.where(col("age")>=30)
 res=df.where((col("age")>=30) & (col("city")!="hyd"))
-res.show(5)
+res.show()
 
 
 #header firstline consider as column ... use header true
