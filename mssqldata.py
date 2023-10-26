@@ -6,17 +6,17 @@ conf = ConfigParser()
 cred = "C:\\bigdata\\drivers\\credentials.txt"
 conf.read(cred)
 
-spark = SparkSession.builder.master("local[*]").appName("test").getOrCreate()
+spark = SparkSession.builder.master("loal[*]").appName("test").getOrCreate()
 #extract data
 host=conf.get("mscred","mshost");
 msuser=conf.get("mscred","mssqlusername");
 mspass = conf.get("mscred","mssqlpassword");
 msdri = conf.get("mscred","mssqldriver");
 
-phost=conf.get("mscred","phost1");
+phost=conf.get("mscred","phost
 puser=conf.get("mscred","psqlusername");
 ppass = conf.get("mscred","psqlpassword");
-pdri = conf.get("mscred","psqldriver");
+pdri = conf.get("mscred","psq
 
 #BONUS,DEPT,EMP,SALGRADE,asl,asltab,banktab,bk,livedata,newdata
 alltabs = spark.read.format("jdbc").option("url", host).option("user", msuser).option("password", mspass).option("driver", msdri)\
