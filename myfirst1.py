@@ -22,7 +22,7 @@ res=df.withColumn("state",when(col("state")=="NJ","NewJersey").when(col("state")
     .withColumn("fullname",concat(col("first_name"),lit(" "),col("last_name"),lit(" "),col("state")))\
     .withColumn("fname",concat_ws("_",col("first_name"),col("last_name"),col("state")))\
     .withColumn("zip",rpad(col("zip"),5,"0"))\
-    .withColumn("phone", concat(lit("*-*-"),substring(col("phone1"),-4,)))\
+    .withColumn("phone", concat(lit("*-*-"),substring(col("phone1"),-4,4)))\
     .withColumn("email1", substring(col("email"),0,5))\
     .withColumn("username", substring_index(col("email"),"@",1))\
     .withColumn("mail", substring_index(col("email"),"@",-1))\
