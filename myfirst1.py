@@ -20,7 +20,7 @@ res=df.withColumn("state",when(col("state")=="NJ","NewJersey").when(col("state")
     .withColumn("email9", when(col("email").contains("cox"),"*").otherwise(col("email")))\
     .withColumn("email0", regexp_replace(col("email"),"aol","*"))\
     .withColumn("fullname",concat(col("first_name"),lit(" "),col("last_name"),lit(" "),col("state")))\
-    .withColumn("fname",concat_ws("_",col("first_name"),col("last_name"),col("state")))\
+    .withColumn("fname",concat_ws("_",col("first_name"),col("last_nam"),col("state")))\
     .withColumn("zip",rpad(col("zip"),5,"0"))\
     .withColumn("phone", concat(lit("*-*-"),substring(col("phone1"),-4,4)))\
     .withColumn("email1", substring(col("email"),0,5))\
